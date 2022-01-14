@@ -46,6 +46,10 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btExit = new System.Windows.Forms.Button();
+            this.btEdit = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,11 +197,55 @@
             this.Column6.HeaderText = "Nơi sinh";
             this.Column6.Name = "Column6";
             // 
+            // btExit
+            // 
+            this.btExit.Location = new System.Drawing.Point(713, 389);
+            this.btExit.Name = "btExit";
+            this.btExit.Size = new System.Drawing.Size(75, 29);
+            this.btExit.TabIndex = 12;
+            this.btExit.Text = "Thoát";
+            this.btExit.UseVisualStyleBackColor = true;
+            this.btExit.Click += new System.EventHandler(this.btExit_Click);
+            // 
+            // btEdit
+            // 
+            this.btEdit.Location = new System.Drawing.Point(623, 389);
+            this.btEdit.Name = "btEdit";
+            this.btEdit.Size = new System.Drawing.Size(75, 29);
+            this.btEdit.TabIndex = 13;
+            this.btEdit.Text = "Sửa";
+            this.btEdit.UseVisualStyleBackColor = true;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
+            // 
+            // btDelete
+            // 
+            this.btDelete.Location = new System.Drawing.Point(531, 389);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(75, 29);
+            this.btDelete.TabIndex = 14;
+            this.btDelete.Text = "Xóa";
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // btAdd
+            // 
+            this.btAdd.Location = new System.Drawing.Point(438, 389);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(75, 29);
+            this.btAdd.TabIndex = 15;
+            this.btAdd.Text = "Thêm";
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 430);
+            this.Controls.Add(this.btAdd);
+            this.Controls.Add(this.btDelete);
+            this.Controls.Add(this.btEdit);
+            this.Controls.Add(this.btExit);
             this.Controls.Add(this.dgvEmployee);
             this.Controls.Add(this.tbPlaceBirth);
             this.Controls.Add(this.label5);
@@ -212,6 +260,7 @@
             this.Controls.Add(this.label1);
             this.Name = "GUI";
             this.Text = "GUI";
+            this.Load += new System.EventHandler(this.GUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -238,5 +287,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button btExit;
+        private System.Windows.Forms.Button btEdit;
+        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Button btAdd;
     }
 }
