@@ -16,7 +16,7 @@ namespace Cau1.DAL
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("Select_Department", conn) { CommandType = CommandType.StoredProcedure };
+            SqlCommand cmd = new SqlCommand("Department", conn) { CommandType = CommandType.StoredProcedure };
             SqlDataReader reader = cmd.ExecuteReader();
 
             List<DepartmentBEL> lstDepartment = new List<DepartmentBEL>();
@@ -31,13 +31,12 @@ namespace Cau1.DAL
             return lstDepartment;
 
         }
-        public DepartmentBEL ReadArea(int id)
+        public DepartmentBEL ReadArea(string IdDepartment)
         {
             SqlConnection conn = CreateConnection();
             conn.Open();
             SqlCommand cmd = new SqlCommand(
-                "select*from areas where id=" + id.ToString(), conn
-                );
+                "select*from Department_2119110239  where IdDepartment= " + "'" + IdDepartment.ToString() + "'", conn);
             SqlDataReader reader = cmd.ExecuteReader();
             DepartmentBEL dep = new DepartmentBEL();
             if (reader.HasRows && reader.Read())
