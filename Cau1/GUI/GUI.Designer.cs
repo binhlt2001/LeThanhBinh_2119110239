@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbDateBirth = new System.Windows.Forms.DateTimePicker();
             this.tbGender = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbPlaceBirth = new System.Windows.Forms.TextBox();
@@ -43,13 +42,14 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btExit = new System.Windows.Forms.Button();
             this.btEdit = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
+            this.tbDateBirth = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,13 +111,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Ngày sinh";
             // 
-            // tbDateBirth
-            // 
-            this.tbDateBirth.Location = new System.Drawing.Point(469, 6);
-            this.tbDateBirth.Name = "tbDateBirth";
-            this.tbDateBirth.Size = new System.Drawing.Size(200, 20);
-            this.tbDateBirth.TabIndex = 7;
-            // 
             // tbGender
             // 
             this.tbGender.AutoSize = true;
@@ -146,6 +139,7 @@
             // 
             // dgvEmployee
             // 
+            this.dgvEmployee.AllowUserToAddRows = false;
             this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -160,6 +154,7 @@
             this.dgvEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployee.Size = new System.Drawing.Size(773, 296);
             this.dgvEmployee.TabIndex = 11;
+            this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
             // 
             // Column1
             // 
@@ -184,6 +179,8 @@
             this.Column4.DataPropertyName = "gender";
             this.Column4.HeaderText = "Giới tính";
             this.Column4.Name = "Column4";
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Column5
             // 
@@ -237,11 +234,19 @@
             this.btAdd.UseVisualStyleBackColor = true;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
+            // tbDateBirth
+            // 
+            this.tbDateBirth.Location = new System.Drawing.Point(469, 6);
+            this.tbDateBirth.Name = "tbDateBirth";
+            this.tbDateBirth.Size = new System.Drawing.Size(206, 20);
+            this.tbDateBirth.TabIndex = 16;
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 430);
+            this.Controls.Add(this.tbDateBirth);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btEdit);
@@ -250,7 +255,6 @@
             this.Controls.Add(this.tbPlaceBirth);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbGender);
-            this.Controls.Add(this.tbDateBirth);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label3);
@@ -276,20 +280,20 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker tbDateBirth;
         private System.Windows.Forms.CheckBox tbGender;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbPlaceBirth;
         private System.Windows.Forms.DataGridView dgvEmployee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Button btExit;
         private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.TextBox tbDateBirth;
     }
 }

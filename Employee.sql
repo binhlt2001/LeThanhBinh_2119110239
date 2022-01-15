@@ -1,7 +1,7 @@
 ﻿create database HR
 go
 use HR
-create table Employee_2119110239(IdEmployee nvarchar(50),Name nvarchar(255), DateBirth date, Gender int, PlaceBirth nvarchar(50), IdDepartment nvarchar(20))
+create table Employee_2119110239(IdEmployee nvarchar(50), Name nvarchar(255), DateBirth nvarchar(50), Gender bit, PlaceBirth nvarchar(50), IdDepartment nvarchar(20))
 go
 create table Department_2119110239(IdDepartment nvarchar(20), Name nvarchar(50))
 go
@@ -34,8 +34,8 @@ go
 create procedure AddEmployee
 	@IdEmployee nvarchar(50),
 	@Name nvarchar(225),
-	@DateBirth date,
-	@Gender int,
+	@DateBirth nvarchar(50),
+	@Gender bit,
 	@PlaceBirth nvarchar(50),
 	@IdDepartment nvarchar(20)
 as
@@ -48,8 +48,8 @@ go
 create procedure EditEmployee
 	@IdEmployee nvarchar(50),
 	@Name nvarchar(225),
-	@DateBirth date,
-	@Gender int,
+	@DateBirth nvarchar(50),
+	@Gender bit,
 	@PlaceBirth nvarchar(50),
 	@IdDepartment nvarchar(20)
 as

@@ -36,11 +36,22 @@ namespace Cau1.GUI
                 tbNameDepartment.DisplayMember = "Name";
             }
         }
+        private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int idx = e.RowIndex;
+            tbId.Text = dgvEmployee.Rows[idx].Cells[0].Value.ToString();
+            tbName.Text = dgvEmployee.Rows[idx].Cells[1].Value.ToString();
+            tbDateBirth.Text = dgvEmployee.Rows[idx].Cells[2].Value.ToString();
+            tbGender.Checked = dgvEmployee.Rows[idx].Cells[3].Value.Equals(true);
+            tbPlaceBirth.Text = dgvEmployee.Rows[idx].Cells[4].Value.ToString();
+            tbNameDepartment.Text = dgvEmployee.Rows[idx].Cells[5].Value.ToString();
+        }
+
 
         private void btExit_Click(object sender, EventArgs e)
         {
             DialogResult Thoát;
-            Thoát = MessageBox.Show("Bạn có muốn thoát?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            Thoát = MessageBox.Show("Bạn có muốn đóng chương trình không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (Thoát == DialogResult.OK)
             {
                 this.Close();
@@ -60,6 +71,7 @@ namespace Cau1.GUI
                 Nv.IdEmployee = tbId.Text;
                 Nv.Name = tbName.Text;
                 Nv.PlaceBirth = tbPlaceBirth.Text;
+                Nv.Gender = tbGender.Checked;
                 Nv.DateBirth = tbDateBirth.Text;
                 Nv.Department = (DepartmentBEL)tbNameDepartment.SelectedItem;
                 cusBAL.EditCustomer(Nv);
@@ -76,15 +88,20 @@ namespace Cau1.GUI
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            EmployeeBEL Nv = new EmployeeBEL();
-            Nv.IdEmployee = tbId.Text;
-            Nv.Name = tbName.Text;
-            Nv.PlaceBirth = tbPlaceBirth.Text;
-            Nv.DateBirth = tbDateBirth.Text;
-            Nv.Department = (DepartmentBEL)tbNameDepartment.SelectedItem;
-            int idx = dgvEmployee.CurrentCell.RowIndex;
-            cusBAL.DeleteCustomer(Nv);
-            dgvEmployee.Rows.RemoveAt(idx);
+            DialogResult Xóa;
+            Xóa = MessageBox.Show("Bạn có muốn xóa?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Xóa == DialogResult.OK)
+            {
+                EmployeeBEL Nv = new EmployeeBEL();
+                Nv.IdEmployee = tbId.Text;
+                Nv.Name = tbName.Text;
+                Nv.PlaceBirth = tbPlaceBirth.Text;
+                Nv.DateBirth = tbDateBirth.Text;
+                Nv.Department = (DepartmentBEL)tbNameDepartment.SelectedItem;
+                int idx = dgvEmployee.CurrentCell.RowIndex;
+                cusBAL.DeleteCustomer(Nv);
+                dgvEmployee.Rows.RemoveAt(idx);
+            }
         }
 
         private void btAdd_Click(object sender, EventArgs e)
@@ -98,7 +115,7 @@ namespace Cau1.GUI
             {
                 cus.IdEmployee = tbId.Text;
                 cus.Name = tbName.Text;
-                cus.DateBirth = tbDateBirth.Value.Date.ToString();
+                cus.DateBirth = tbDateBirth.Text;
                 cus.Gender = tbGender.Checked;
                 cus.PlaceBirth = tbPlaceBirth.Text;
                 cus.Department = (DepartmentBEL)tbNameDepartment.SelectedItem;
